@@ -24,7 +24,7 @@ describe('Test Character Types handlers', async function () {
 
   after(async () => {
     provider.closeClient();
-    // provider.drop();
+    provider.drop();
   });
 
   /** Find a Character */
