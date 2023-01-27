@@ -1,0 +1,753 @@
+{
+	"info": {
+		"_postman_id": "99bbe0f8-ec0c-4866-8f91-ac82c143bb51",
+		"name": "pop-estate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4943268"
+	},
+	"item": [
+		{
+			"name": "Get all characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/{{version}}/characters?limit=3&sort=id",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "sort",
+							"value": "id"
+						},
+						{
+							"key": "species",
+							"value": "Human",
+							"disabled": true
+						},
+						{
+							"key": "skip",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/{{version}}/characters?limit=3&sort=id",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"characters"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3"
+								},
+								{
+									"key": "sort",
+									"value": "id"
+								},
+								{
+									"key": "species",
+									"value": "Human",
+									"disabled": true
+								},
+								{
+									"key": "skip",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "772"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"304-2sxHCKKGHtTFI06YdyIRCOzU994\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Jan 2023 01:54:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"63d32c73193b130dd80523e2\",\n            \"id\": 1,\n            \"name\": \"Rick Sanchez\",\n            \"status\": \"Alive\",\n            \"species\": \"Human\",\n            \"type\": \"\",\n            \"gender\": \"Male\",\n            \"origin\": \"Earth (C-137)\",\n            \"location\": \"Citadel of Ricks\",\n            \"image\": \"https://rickandmortyapi.com/api/character/avatar/1.jpeg\"\n        },\n        {\n            \"_id\": \"63d32c73193b130dd80523e3\",\n            \"id\": 2,\n            \"name\": \"Morty Smith\",\n            \"status\": \"Alive\",\n            \"species\": \"Human\",\n            \"type\": \"\",\n            \"gender\": \"Male\",\n            \"origin\": \"unknown\",\n            \"location\": \"Citadel of Ricks\",\n            \"image\": \"https://rickandmortyapi.com/api/character/avatar/2.jpeg\"\n        },\n        {\n            \"_id\": \"63d32c73193b130dd80523e4\",\n            \"id\": 3,\n            \"name\": \"Summer Smith\",\n            \"status\": \"Alive\",\n            \"species\": \"Human\",\n            \"type\": \"\",\n            \"gender\": \"Female\",\n            \"origin\": \"Earth (Replacement Dimension)\",\n            \"location\": \"Earth (Replacement Dimension)\",\n            \"image\": \"https://rickandmortyapi.com/api/character/avatar/3.jpeg\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Find Character",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/{{version}}/characters?name=Morty Smith",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "species",
+							"value": "Human",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Morty Smith"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/{{version}}/characters?name=Morty Smith",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"characters"
+							],
+							"query": [
+								{
+									"key": "species",
+									"value": "Human",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Morty Smith"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "249"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f9-sBpajHnUj6OYalcSrftadBJpduY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Jan 2023 02:00:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"63d32c73193b130dd80523e3\",\n            \"id\": 2,\n            \"name\": \"Morty Smith\",\n            \"status\": \"Alive\",\n            \"species\": \"Human\",\n            \"type\": \"\",\n            \"gender\": \"Male\",\n            \"origin\": \"unknown\",\n            \"location\": \"Citadel of Ricks\",\n            \"image\": \"https://rickandmortyapi.com/api/character/avatar/2.jpeg\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create character",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 22,\n    \"name\": \"aqua morty\",\n    \"status\": \"unknown\",\n    \"species\": \"humanoid\",\n    \"type\": \"fish-person\",\n    \"gender\": \"Male\",\n    \"origin\": \"unknown\",\n    \"location\": \"citadel of ricks\",\n    \"image\": \"https: //rickandmortyapi.com/api/character/avatar/21.jpeg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/{{version}}/characters",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"characters"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "500",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 22,\n    \"name\": \"aqua morty\",\n    \"status\": \"unknown\",\n    \"species\": \"humanoid\",\n    \"type\": \"fish-person\",\n    \"gender\": \"Male\",\n    \"origin\": \"unknown\",\n    \"location\": \"citadel of ricks\",\n    \"image\": \"https: //rickandmortyapi.com/api/character/avatar/21.jpeg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/{{version}}/characters",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"characters"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "216"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d8-DvVYOxbcMLJfkngs1YR1LbgJfRg\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Jan 2023 02:29:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"message\": \"Error creating new Character\",\n        \"errorDetail\": \"E11000 duplicate key error collection: pop-estate.characters index: id_1 dup key: { id: 22 }\",\n        \"messageWithCode\": \"CH001 Error creating new Character\"\n    }\n}"
+				},
+				{
+					"name": "201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 22,\n    \"name\": \"aqua morty\",\n    \"status\": \"unknown\",\n    \"species\": \"humanoid\",\n    \"type\": \"fish-person\",\n    \"gender\": \"Male\",\n    \"origin\": \"unknown\",\n    \"location\": \"citadel of ricks\",\n    \"image\": \"https: //rickandmortyapi.com/api/character/avatar/21.jpeg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/{{version}}/characters",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"characters"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14a-gveR6+tpcgfHZa4RlIm+HmWX0W8\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Jan 2023 02:51:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 22,\n        \"name\": \"aqua morty\",\n        \"status\": \"unknown\",\n        \"species\": \"humanoid\",\n        \"gender\": \"Male\",\n        \"origin\": \"unknown\",\n        \"location\": \"citadel of ricks\",\n        \"image\": \"https: //rickandmortyapi.com/api/character/avatar/21.jpeg\",\n        \"_id\": \"63d33c23e1f2570969b92fda\",\n        \"createdAt\": \"2023-01-27T02:51:15.334Z\",\n        \"updatedAt\": \"2023-01-27T02:51:15.334Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update character",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"species\": \"humanoid\",\n    \"type\": \"fish-person\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/api/{{version}}/characters/14",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"characters",
+						"14"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"species\": \"humanoid\",\n    \"type\": \"fish-person\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/{{version}}/characters/14",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"characters",
+								"14"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "265"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"109-3Uo4R4X8Gj0suzXJcspWX53Qm9c\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Jan 2023 02:46:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"_id\": \"63d32c73193b130dd80523ef\",\n        \"id\": 14,\n        \"name\": \"Alien Morty\",\n        \"status\": \"unknown\",\n        \"species\": \"humanoid\",\n        \"type\": \"fish-person\",\n        \"gender\": \"Male\",\n        \"origin\": \"unknown\",\n        \"location\": \"Citadel of Ricks\",\n        \"image\": \"https://rickandmortyapi.com/api/character/avatar/14.jpeg\"\n    }\n}"
+				},
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"species\": \"humanoid\",\n    \"type\": \"fish-person\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/{{version}}/characters/100",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"characters",
+								"100"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "149"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"95-swLWPqI/TepXG+77cfNRdpxz4hI\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Jan 2023 02:47:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"message\": \"Error updating the Character, not found\",\n        \"errorDetail\": null,\n        \"messageWithCode\": \"CHU002 Error updating the Character, not found\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete character",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/{{version}}/characters/22",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"characters",
+						"22"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/{{version}}/characters/22",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"characters",
+								"22"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10-2TT6G7BPg7znmLIcug9ayJ7Fm6Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Jan 2023 02:31:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"removed\": true\n}"
+				},
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/{{version}}/characters/30",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"{{version}}",
+								"characters",
+								"30"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "109"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6d-4zZrL11mHbP4BvJw4kT6UVprMgg\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Jan 2023 02:46:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"message\": \"Character not found\",\n        \"errorDetail\": null,\n        \"messageWithCode\": \"CHR002 Character not found\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
