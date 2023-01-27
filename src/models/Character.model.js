@@ -8,7 +8,8 @@ const CharacterModel = new Schema({
     validate: {
       validator: Number.isInteger,
       message: '{VALUE} is not an integer value'
-    }
+    },
+    unique: true
   },
   name: {
     type: String,
@@ -27,7 +28,7 @@ const CharacterModel = new Schema({
   gender: {
     type: String,
     required: true,
-    enum: ['female', 'male', 'genderless', 'unknown'],
+    enum: ['Female', 'Male', 'Genderless', 'unknown'],
   },
   origin: {
     type: String,
@@ -51,24 +52,24 @@ const CharacterModel = new Schema({
 });
 
 CharacterModel.pre('save', async function (next) {
-  const account = this;
-  account.createdAt = new Date();
-  account.updatedAt = new Date();
+  const character = this;
+  character.createdAt = new Date();
+  character.updatedAt = new Date();
   next();
 });
 
 CharacterModel.pre('update', function (next) {
-  const account = this;
-  const data = account.$set;
+  const character = this;
+  const data = character.$set;
   data.updatedAt = new Date();
   next();
 });
 
 CharacterModel.pre('findOneAndUpdate', function (next) {
-  const account = this.getUpdate();
-  const data = account.$set;
+  const character = this.getUpdate();
+  const data = character.$set;
   data.updatedAt = new Date();
   next();
 });
 
-export default mongoose.model('Accounts', CharacterModel);
+export default mongoose.model('Characters', CharacterModel);

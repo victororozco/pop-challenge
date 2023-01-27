@@ -1,0 +1,18 @@
+{
+  "env": {
+    "node": true,
+    "commonjs": true,
+    "es6": true,
+    "mocha": true
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "requireConfigFile": false
+  },
+  "rules": {
+    "eqeqeq": "error"
+  },
+  "extends": ["eslint:recommended", "prettier"]
+}
+

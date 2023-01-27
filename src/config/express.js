@@ -2,6 +2,7 @@ import express from 'express';
 import helmet from 'helmet';
 import createRoutes from '../routes';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 
 /**
  * Express instance
@@ -22,6 +23,8 @@ app.use(
     credentials: true
   })
 );
+
+app.use(bodyParser.json());
 
 /* mount api version routes */
 createRoutes(app);

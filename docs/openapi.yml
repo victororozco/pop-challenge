@@ -1,0 +1,279 @@
+openapi: 3.0.0
+
+info:
+  title: "PopEstate API"
+  description: |
+    This API was designed based on the *Google"s API Design Guide*.
+  version: v1
+  contact:
+    name: Victor Orozco
+    email: vorozco.dev@gmail.com
+  license:
+      name: "Apache 2.0"
+      url: "https://www.apache.org/licenses/LICENSE-2.0.html"
+
+servers:
+  - description: local
+    url: http://localhost:3001/api/{apiVersion}
+    variables:
+      apiVersion:
+        default: "v1"
+        description: API Version
+
+paths:
+  /characters:
+    get:
+      operationId: getAllCharacters
+      summary: Get all characters
+      tags:
+        - characters
+      responses:
+        "200":
+          description: Get all characters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetAllcharacters"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalError"
+
+    post:
+      operationId: createNewCharacter
+      summary: Create new character
+      tags:
+          - characters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateCharacter"
+      responses:
+          "201":
+              description: Created character
+              content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/CreatedCharacter"
+          "401":
+            $ref: "#/components/responses/UnauthorizedError"
+          "404":
+            $ref: "#/components/responses/NotFoundError"
+          "500":
+            $ref: "#/components/responses/InternalError"
+
+    put:
+      operationId: updateCharacter
+      summary: Update Character by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      tags:
+          - characters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateCharacter"
+      responses:
+          "200":
+              description: Updated Character
+              content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/UpdatedCharacter"
+          "401":
+            $ref: "#/components/responses/UnauthorizedError"
+          "404":
+            $ref: "#/components/responses/NotFoundError"
+          "500":
+            $ref: "#/components/responses/InternalError"
+
+    delete:
+      operationId: deleteCharacter
+      summary: Delete Character by id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      tags:
+          - characters
+      responses:
+          "200":
+              description: Deleted Character
+              content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/DeletedCharacter"
+          "401":
+            $ref: "#/components/responses/UnauthorizedError"
+          "404":
+            $ref: "#/components/responses/NotFoundError"
+          "500":
+            $ref: "#/components/responses/InternalError"
+  
+components:
+  responses:
+    InternalError:
+      description: Internal error
+      content:
+        application/json:
+          schema:
+              $ref: "#/components/schemas/Error"
+
+    UnauthorizedError:
+      description: "Access token is missing or invalid"
+      content:
+          application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    
+    ForbiddenError:
+      description: Forbiden Operation
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    
+    NotFoundError:
+      description: Not found
+      content:
+        application/json:
+          schema:
+              $ref: "#/components/schemas/Error"
+
+  schemas:
+    Error:
+      type: object
+      required:
+        - message
+        - errorDetail
+        - messageWithCode
+      properties:
+        message:
+          type: string
+        errorDetail:
+          type: string
+        messageWithCode:
+          type: string
+        errorCode:
+          type: string
+        type:
+          type: string
+          enum: ["error", "warning"]
+
+    characters:
+      properties:
+        _id:
+          type: string
+          example: "89b3c2e5219a8549300d4f32"
+          description: Mongo ObjectId
+        id:
+          type: number
+          example: 1
+        name:
+          type: string
+          example: "Morty Smith"
+        status:
+          type: string
+          enum: ["alive", "dead", "unknown"]
+          example: "alive"
+        species:
+          type: string
+          example: "Human"
+        gender:
+          type: number
+          enum: ["Female", "Male", "Genderless", "unknown"]
+          example: "Male"
+        origin:
+          type: string
+          example: "Earth (C-137)"
+        image:
+          type: string
+          example: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+
+    GetAllcharacters:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/characters"
+
+    CreateCharacter:
+      type: object
+      properties:
+        id:
+          type: number
+          example: 1
+        name:
+          type: string
+          example: "Morty Smith"
+        status:
+          type: string
+          enum: ["alive", "dead", "unknown"]
+          example: "alive"
+        species:
+          type: string
+          example: "Human"
+        gender:
+          type: number
+          enum: ["Female", "Male", "Genderless", "unknown"]
+          example: "Male"
+        origin:
+          type: string
+          example: "Earth (C-137)"
+        image:
+          type: string
+          example: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+
+    CreatedCharacter:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/characters"
+
+    UpdateCharacter:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Morty Smith"
+        status:
+          type: string
+          enum: ["alive", "dead", "unknown"]
+          example: "alive"
+        species:
+          type: string
+          example: "Human"
+        gender:
+          type: number
+          enum: ["Female", "Male", "Genderless", "unknown"]
+          example: "Male"
+        origin:
+          type: string
+          example: "Earth (C-137)"
+        image:
+          type: string
+          example: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+
+    UpdatedCharacter:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/characters"
+
+    DeletedCharacter:
+      type: object
+      properties:
+        removed:
+          type: boolean
+          example: true
